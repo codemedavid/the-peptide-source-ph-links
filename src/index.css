@@ -1,20 +1,34 @@
 :root {
-  /* Color Palette */
-  --color-primary: #F3E5E5;
-  --color-primary-dark: #EBD0D0;
-  --color-secondary: #FAF5F5;
-  --color-accent: #C39EA0;
-  --color-text: #4A4A4A;
-  --color-text-light: #6B6B6B;
+  /* Color Palette - Gellies Peppies Theme */
+  --color-primary: #8A2BE2;
+  /* Violet */
+  --color-primary-dark: #6A1B9A;
+  /* Darker Violet */
+  --color-secondary: #FFB6C1;
+  /* Soft Pink */
+  --color-secondary-dark: #FF69B4;
+  /* Hot Pink */
+  --color-accent: #FFC0CB;
+  /* Pink */
+
+  --color-bg-start: #E6E6FA;
+  /* Lavender */
+  --color-bg-end: #D8BFD8;
+  /* Thistle (Violet-ish) */
+
+  --color-text: #2D2D2D;
+  --color-text-light: #5A5A5A;
   --color-white: #FFFFFF;
-  
+
   /* Gradients */
-  --bg-gradient: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  --button-gradient: linear-gradient(90deg, rgba(243, 229, 229, 0.5) 0%, rgba(250, 245, 245, 0.8) 100%);
-  
+  --bg-gradient: linear-gradient(180deg, #F3E5F5 0%, #E1BEE7 100%);
+  /* Lighter Violet Gradient */
+  --button-primary-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+
   /* Typography */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'inter', sans-serif;
+  /* Clean, modern */
+  --font-body: 'inter', sans-serif;
 }
 
 * {
@@ -32,9 +46,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
@@ -45,14 +64,17 @@ a {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }

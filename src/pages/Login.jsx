@@ -16,9 +16,14 @@ const Login = () => {
         setError(null);
 
         // Simple client-side check (trimmed to ignore accidental spaces)
-        if (password.trim() === HARDCODED_PASS) {
-            // Success: Set local storage flag
-            sessionStorage.setItem('isAdmin', 'true');
+        // The original code only had a password field.
+        // Assuming the user wants to replace the password check with a new hardcoded password check.
+        // The provided snippet includes an 'email' check, but no 'email' state or input exists.
+        // I will adapt the instruction to only use the 'password' state that is available.
+        // If the user intended to add an email field, that would be a separate instruction.
+        if (password === 'GPlinks@Admin!123') {
+            // Successful login
+            localStorage.setItem('isAuthenticated', 'true');
             navigate('/admin');
         } else {
             console.log('Login attempt failed. Typed:', password); // Debug log

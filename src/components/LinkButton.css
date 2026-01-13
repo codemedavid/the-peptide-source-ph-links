@@ -6,33 +6,53 @@
     justify-content: center;
     gap: 12px;
     margin-bottom: 16px;
-    padding: 18px 24px;
+    padding: 16px 24px;
     border-radius: 50px;
-
-    /* Glassmorphism / Style */
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 1px solid var(--color-primary-dark);
-    color: var(--color-text);
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     text-decoration: none;
-
-    /* Transitions */
     transition: all 0.3s ease-out;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    position: relative;
+    overflow: hidden;
 }
 
-.link-button:hover {
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 4px 15px rgba(243, 229, 229, 0.5);
-    transform: translateY(-2px) scale(1.02);
+/* Primary Variant (Violet Filled) */
+.link-button--primary {
+    background: var(--button-primary-gradient);
+    color: var(--color-white);
+    border: none;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+.link-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Social/Secondary Variant (Pink Outline) */
+.link-button--social {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid var(--color-secondary-dark);
+    color: var(--color-text);
+}
+
+.link-button--social:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 }
 
 .link-button-icon {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .link-button-text {
     letter-spacing: 0.02em;
+    font-size: 1.05rem;
 }

@@ -151,3 +151,24 @@
   z-index: 10;
   gap: 0.25rem;
 }
+/* Background Line Heart */
+.bg-heart-decor {
+    position: absolute;
+    width: 600px; /* Large enough to be a subtle background */
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    opacity: 0.15; /* Subtle */
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: overlay;
+}
+
+.brand-separator {
+    width: 200px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    opacity: 0.8;
+}
