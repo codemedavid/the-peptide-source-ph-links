@@ -23,7 +23,7 @@ const Login = () => {
         // If the user intended to add an email field, that would be a separate instruction.
         if (password === 'GPlinks@Admin!123') {
             // Successful login
-            localStorage.setItem('isAuthenticated', 'true');
+            sessionStorage.setItem('isAdmin', 'true');
             navigate('/admin');
         } else {
             console.log('Login attempt failed. Typed:', password); // Debug log
