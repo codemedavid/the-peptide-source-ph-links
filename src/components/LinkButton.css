@@ -21,32 +21,47 @@
     background: var(--button-primary-gradient);
     color: var(--color-white);
     border: none;
-    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
-    /* Blue shadow default */
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+    /* Pink shadow */
 }
 
 .link-button--primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--button-hover-glow);
-    filter: brightness(1.05);
+    filter: brightness(1.1);
 }
 
-/* Secondary Variant (Gradient Outline) */
+/* Secondary Variant (Gold Outline) */
 .link-button--secondary {
-    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
-        var(--button-primary-gradient) border-box;
-    border: 2px solid transparent;
+    background: transparent;
+    border: 2px solid var(--color-secondary);
     color: var(--color-text);
+    /* Or Gold? Let's try text color for better readability, or Gold if legible */
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+}
+
+.link-button--secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--button-gold-gradient);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .link-button--secondary:hover {
-    /* Fill on hover */
-    background: var(--button-primary-gradient) padding-box,
-        var(--button-primary-gradient) border-box;
     color: var(--color-white);
     border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: var(--button-hover-glow);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    /* Gold shadow */
+}
+
+.link-button--secondary:hover::before {
+    opacity: 1;
 }
 
 .link-button-icon {

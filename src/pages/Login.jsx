@@ -14,7 +14,7 @@ const Login = () => {
         setError(null);
 
         // Simple client-side check
-        if (password === 'Pepmj@Admin!123') {
+        if (password === 'Tps@Admin!123') {
             // Successful login
             sessionStorage.setItem('isAdmin', 'true');
             navigate('/admin');

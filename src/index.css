@@ -1,29 +1,52 @@
 :root {
-  /* Color Palette - Peptide by MJ Theme */
-  --color-primary: #81D4FA; /* Light Blue */
-  --color-primary-dark: #29B6F6; /* Blue */
-  --color-secondary: #F48FB1; /* Pink */
-  --color-secondary-dark: #EC407A; /* Dark Pink */
-  
-  /* Gradient Colors for background */
-  --grad-start: #E3F2FD; /* Blue 50 */
-  --grad-middle: #FCE4EC; /* Pink 50 */
-  --grad-end: #F3E5F5; /* Purple 50 */
+  /* Color Palette - The Peptide Source PH Theme */
+  --color-primary: #D81B60;
+  /* Royal Pink / Magenta */
+  --color-primary-light: #F48FB1;
+  /* Light Pink */
+  --color-primary-dark: #AD1457;
+  /* Darker Magenta */
 
-  --color-text: #263238; /* Deep Blue Grey */
-  --color-text-light: #546E7A; /* Blue Grey */
+  --color-secondary: #D4AF37;
+  /* Soft Gold */
+  --color-secondary-light: #F9E79F;
+  /* Champagne / Light Gold */
+
+  --color-bg-ivory: #FFFFF0;
+  /* Ivory */
+  --color-bg-cream: #FFFDD0;
+  /* Cream */
+
+  --color-text: #3E2723;
+  /* Dark Brown/Espresso for elegance on cream */
+  --color-text-light: #6D4C41;
+  /* Softer Brown */
   --color-white: #FFFFFF;
+  --color-accent: var(--color-secondary);
 
   /* Gradients */
-  /* Blue -> Blush Pink -> Violet */
+  --grad-start: #FFFFF0;
+  /* Ivory */
+  --grad-middle: #FFF5F8;
+  /* Very Pale Pink */
+  --grad-end: #FFFDD0;
+  /* Cream */
+
   --bg-gradient: linear-gradient(180deg, var(--grad-start) 0%, var(--grad-middle) 50%, var(--grad-end) 100%);
-  
-  --button-primary-gradient: linear-gradient(90deg, #4FC3F7 0%, #F06292 100%); /* Blue to Pink */
-  --button-hover-glow: 0 4px 15px rgba(240, 98, 146, 0.4);
+
+  /* Button Gradients */
+  --button-primary-gradient: linear-gradient(135deg, #D81B60 0%, #AD1457 100%);
+  /* Magenta Gradient */
+  --button-gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F1C40F 100%);
+  /* Gold Gradient */
+
+  --button-hover-glow: 0 4px 20px rgba(216, 27, 96, 0.4);
 
   /* Typography */
   --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  /* Elegant Serif */
+  --font-body: 'Poppins', 'Inter', sans-serif;
+  /* Clean Sans-serif */
 }
 
 * {

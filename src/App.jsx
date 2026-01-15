@@ -18,34 +18,42 @@ const Home = () => {
 
   const fetchLinks = async () => {
     try {
-      if (error) throw error;
-      if (data && data.length > 0) {
-        // Schema Check: Ensure 'subtext' column exists in fetched data (even if null)
-        // If undefined, it means the DB table hasn't been updated with the new column.
-        if (typeof data[0].subtext === 'undefined') {
-          console.warn("Detected old database schema (missing 'subtext'). Falling back to hardcoded configuration.");
-          throw new Error("Old Schema Detected");
+      if (typeof supabase !== 'undefined') {
+        // Attempt to fetch if supabase is configured
+        let { data, error } = await supabase
+          .from('links')
+          .select('*')
+          .eq('active', true)
+          .order('order_index', { ascending: true });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          // Schema Check
+          if (typeof data[0].subtext === 'undefined') {
+            console.warn("Detected old database schema (missing 'subtext'). Falling back to hardcoded configuration.");
+            throw new Error("Old Schema Detected");
+          }
+          setLinks(data);
+          return;
         }
-        setLinks(data);
-      } else {
-        // Fallback or Empty DB logic
-        throw new Error("No links in DB");
       }
+      throw new Error("No links in DB or Supabase not configured");
     } catch (error) {
       console.log('Using default links configuration');
       // Default Fallback Links based on Rebranding
       setLinks([
         { text: 'Primary Actions', variant: 'header' },
-        { text: 'Price List', href: 'https://drive.google.com/file/d/1Bc8Z3P4xNRGs3wC58aOjSNRqZppYKA4o/view?usp=drivesdk', icon: '💰', variant: 'primary' },
-        { text: 'Order & Inquiries (WhatsApp)', href: 'https://wa.me/639068488131', icon: '💬', variant: 'primary' },
-        { text: 'Message Us (Viber)', href: 'viber://contact?number=%2B639068488131', icon: '📞', variant: 'primary' },
-
-        { text: 'Community', variant: 'header' },
-        { text: 'Join Our Community Group', href: 'https://m.me/cm/AbbU9aNR-_LdXPbb/?send_source=cm%3Acopy_invite_link', icon: '👥', variant: 'secondary' },
+        { text: 'Price List', href: 'https://the-peptide-source-ph.vercel.app', icon: '💰', variant: 'primary' },
+        { text: 'WhatsApp', href: 'https://wa.me/639953928293', icon: '💬', variant: 'primary' },
+        { text: 'Messenger', href: 'https://www.facebook.com/share/176BcpFAUF/?mibextid=wwXIfr', icon: '💬', variant: 'primary' },
 
         { text: 'Follow & Connect', variant: 'header' },
-        { text: 'Facebook — Peptide MJ', href: 'https://www.facebook.com/share/1D13cuk9vB/', icon: '📘', variant: 'secondary' },
-        { text: 'TikTok — Peptide by MJ', href: 'https://www.tiktok.com/@peptidebymj?_r=1&_t=ZS-934EOKIDojl', icon: '🎵', variant: 'secondary' }
+        { text: 'Facebook', href: 'https://www.facebook.com/share/14a9hoDToGS/?mibextid=wwXIfr', icon: '📘', variant: 'secondary' },
+        { text: 'TikTok', href: 'https://www.tiktok.com/@peptidesourceph?_r=1&_t=ZS-931t3ljE9g4', icon: '🎵', variant: 'secondary' },
+
+        { text: 'Contact Details', variant: 'header' },
+        { text: '09953928293', href: 'tel:+639953928293', icon: '📱', variant: 'secondary' }
       ]);
     } finally {
       setLoading(false);
@@ -62,23 +70,23 @@ const Home = () => {
         <div className="logo-container">
           <img
             src="/logo.png"
-            alt="Peptide by MJ Logo"
+            alt="The Peptide Source PH Logo"
             className="logo-img"
           />
           <div className="logo-glow"></div>
         </div>
 
         <h1 className="brand-name">
-          Peptide by MJ
+          The Peptide Source PH
         </h1>
         <p className="brand-tagline">
-          Where quality meets affordability.
+          Your trusted source for premium peptides in the Philippines.
         </p>
 
         <div className="brand-separator-line"></div>
 
         <p className="brand-description" style={{ maxWidth: '600px', margin: '0.5rem auto 0', lineHeight: '1.6', fontSize: '0.95rem', opacity: 0.9 }}>
-          Premium peptides made accessible — trusted quality without the premium price.
+          Premium peptides made accessible. Trusted quality, transparent sourcing, and reliable support — care you can rely on.
         </p>
       </header>
 

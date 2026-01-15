@@ -31,7 +31,7 @@ const AdminDashboard = () => {
             const { data, error } = await supabase
                 .from('links')
                 .select('*')
-                .order('order', { ascending: true });
+                .order('order_index', { ascending: true });
 
             if (error) throw error;
 
@@ -68,10 +68,10 @@ const AdminDashboard = () => {
     const handleAddLink = async (e) => {
         e.preventDefault();
         try {
-            const maxOrder = links.length > 0 ? Math.max(...links.map(l => l.order || 0)) : -1;
+            const maxOrder = links.length > 0 ? Math.max(...links.map(l => l.order_index || 0)) : -1;
 
             // Clean up empty strings to null if needed, or keep as is.
-            const payload = { ...newLink, order: maxOrder + 1 };
+            const payload = { ...newLink, order_index: maxOrder + 1 };
             if (!payload.subtext) delete payload.subtext; // Optional
 
             const { data, error } = await supabase
