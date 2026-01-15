@@ -18,3 +18,4 @@ If you are developing a production application, we recommend using TypeScript wi
 # kc-pep-links
 # paure-links
 # gellie-s-peppies-links
+# peptide-mj-links
