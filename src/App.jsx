@@ -80,13 +80,13 @@ const Home = () => {
           The Peptide Source PH
         </h1>
         <p className="brand-tagline">
-          Your trusted source for premium peptides in the Philippines.
+          Precision Peptides: The Science of a Better You.
         </p>
 
         <div className="brand-separator-line"></div>
 
         <p className="brand-description" style={{ maxWidth: '600px', margin: '0.5rem auto 0', lineHeight: '1.6', fontSize: '0.95rem', opacity: 0.9 }}>
-          Premium peptides made accessible. Trusted quality, transparent sourcing, and reliable support — care you can rely on.
+          Pure Bio-Logic. Proven Results.
         </p>
       </header>
 
